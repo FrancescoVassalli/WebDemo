@@ -1,0 +1,785 @@
+<head>
+    <!-- ===== BRAND STYLES: Ralston / Olde Town ===== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ---------- Color tokens ---------- */
+        :root {
+            --cobalt: #1F32B8;
+            /* Ralston Cobalt: sign fields, tees, wordmark */
+            --gold: #F6B91D;
+            /* Locust Gold: center line, fall leaves */
+            --cream: #FFF6DC;
+            /* Paper Cream: default ground, never pure white */
+
+            --brick: #B8472A;
+            /* Olde Town Brick (spot) */
+            --green: #1E5A4A;
+            /* Lamp Post Green (spot) */
+            --sky: #4FA3E8;
+            /* Front Range Sky (spot) */
+            --ink: #12153A;
+            /* Porch Ink: text, outlines, hard shadows */
+
+            --font-display: 'Bowlby One', sans-serif;
+            --font-condensed: 'Barlow Condensed', sans-serif;
+            --font-body: 'Barlow', sans-serif;
+
+            --border-w: 4px;
+            --shadow-offset: 5px;
+
+            /* Spacing scale */
+            --space-1: .5rem;
+            --space-2: 1rem;
+            --space-3: 1.5rem;
+            --space-4: 2.5rem;
+            --space-5: 4rem;
+
+            --content-width: 1100px;
+        }
+
+        /* ---------- Base ---------- */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 100%;
+        }
+
+        body {
+            margin: 0;
+            background: var(--cream);
+            color: var(--ink);
+            font-family: var(--font-body);
+            font-weight: 400;
+            font-size: 1.5rem;
+            /* 17px */
+            line-height: 1.55;
+        }
+
+        /* Page wrapper: centers content and gives side margins */
+        .container {
+            width: 100%;
+            max-width: var(--content-width);
+            margin: 0 auto;
+            padding: var(--space-4) var(--space-3);
+        }
+
+        /* ---------- Headings ---------- */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .display {
+            font-family: var(--font-display);
+            font-weight: 400;
+            color: var(--ink);
+            line-height: 1.1;
+            margin: 1.5em 0 .5em;
+        }
+
+        /* No extra space above the first element in a container */
+        h1:first-child,
+        h2:first-child,
+        h3:first-child,
+        h4:first-child,
+        h5:first-child,
+        h6:first-child {
+            margin-top: 0;
+        }
+
+        h1 {
+            font-size: clamp(2.25rem, 5vw, 3.5rem);
+            margin-top: 0;
+            text-shadow: 3px 3px 0 var(--gold);
+        }
+
+        h2 {
+            font-size: clamp(1.875rem, 4vw, 2.75rem);
+            text-shadow: 3px 3px 0 var(--gold);
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            text-shadow: 3px 3px 0 var(--gold);
+        }
+
+        h4 {
+            font-size: 1.5rem;
+            text-shadow: 2px 2px 0 var(--gold);
+        }
+
+        h5 {
+            font-size: 1.25rem;
+            text-shadow: 2px 2px 0 var(--gold);
+        }
+
+        h6 {
+            font-size: 1.0625rem;
+            text-shadow: 2px 2px 0 var(--gold);
+        }
+
+        /* Headings that directly follow each other (e.g. title + subtitle) */
+        h1+h2,
+        h2+h3,
+        h3+h4 {
+            margin-top: .75em;
+        }
+
+        /* ---------- Text ---------- */
+        p {
+            margin: 0 0 1em;
+        }
+
+        ul,
+        ol {
+            margin: 0 0 1em;
+            padding-left: 1.5em;
+        }
+
+        li {
+            margin-bottom: .35em;
+        }
+
+        blockquote {
+            margin: 1.5em 0;
+            padding: .5em 0 .5em 1em;
+            border-left: 6px solid var(--gold);
+        }
+
+        q {
+            box-shadow: inset 0 -2px 0 var(--gold);
+            padding: 0 .2em;
+        }
+
+        cite {
+            font-style: normal;
+            font-weight: 600;
+            text-decoration: underline;
+            text-decoration-color: var(--gold);
+            text-decoration-thickness: 2px;
+            text-underline-offset: .15em;
+        }
+
+        hr {
+            margin: 2em 0;
+            border: 0;
+            border-top: 3px solid var(--ink);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .accountability-photo {
+            float: right;
+            width: min(38%, 360px);
+            margin: 0 var(--shadow-offset) 1rem 1.5rem;
+            border: var(--border-w) solid var(--ink);
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--ink);
+        }
+
+        .accountability-photo img {
+            display: block;
+            width: 100%;
+        }
+
+        a {
+            color: var(--cobalt);
+            font-weight: 600;
+        }
+
+        a:hover {
+            color: var(--brick);
+        }
+
+        q a,
+        q a:hover {
+            color: inherit;
+            font-weight: inherit;
+        }
+
+        .condensed {
+            font-family: var(--font-condensed);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .04em;
+        }
+
+        .body {
+            font-family: var(--font-body);
+            font-weight: 400;
+        }
+
+        .body-bold {
+            font-family: var(--font-body);
+            font-weight: 600;
+        }
+
+        .lead {
+            font-size: 1.25rem;
+            line-height: 1.45;
+            margin-bottom: 1.5em;
+        }
+
+        .kicker {
+            font-family: var(--font-condensed);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            font-size: 1.1rem;
+            color: var(--brick);
+            margin: 0 0 .75rem;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) .kicker {
+                color: var(--gold);
+            }
+        }
+
+        .stat {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 8vw, 3.5rem);
+            line-height: 1;
+            margin: 0 0 .15em;
+        }
+
+        .pledge .block-title {
+            font-size: clamp(1.75rem, 5vw, 2.5rem);
+        }
+
+        .pledge p {
+            font-size: 1.2rem;
+        }
+
+        .bg-gold :is(h1, h2, h3, h4, h5, h6),
+        .bg-sky :is(h1, h2, h3, h4, h5, h6) {
+            text-shadow: 3px 3px 0 var(--cobalt);
+        }
+
+
+        /* ---------- Sections ---------- */
+        section {
+            margin: var(--space-5) 0;
+        }
+
+        section:first-child {
+            margin-top: 0;
+        }
+
+        /* ---------- Color utilities ---------- */
+        .bg-cobalt {
+            background: var(--cobalt);
+            color: #fff;
+        }
+
+        .bg-gold {
+            background: var(--gold);
+            color: var(--ink);
+        }
+
+        .bg-cream {
+            background: var(--cream);
+            color: var(--ink);
+        }
+
+        .bg-brick {
+            background: var(--brick);
+            color: #fff;
+        }
+
+        .bg-green {
+            background: var(--green);
+            color: #fff;
+        }
+
+        .bg-sky {
+            background: var(--sky);
+            color: var(--ink);
+        }
+
+        .bg-ink {
+            background: var(--ink);
+            color: var(--cream);
+        }
+
+        /* Headings and links inherit color on colored backgrounds */
+        .bg-cobalt :is(h1, h2, h3, h4, h5, h6),
+        .bg-brick :is(h1, h2, h3, h4, h5, h6),
+        .bg-green :is(h1, h2, h3, h4, h5, h6) {
+            color: #fff;
+        }
+
+        .bg-ink :is(h1, h2, h3, h4, h5, h6) {
+            color: var(--cream);
+        }
+
+        .bg-cobalt a,
+        .bg-brick a,
+        .bg-green a,
+        .bg-ink a {
+            color: var(--gold);
+        }
+
+        .text-cobalt {
+            color: var(--cobalt);
+        }
+
+        .text-gold {
+            color: var(--gold);
+        }
+
+        .text-cream {
+            color: var(--cream);
+        }
+
+        .text-brick {
+            color: var(--brick);
+        }
+
+        .text-green {
+            color: var(--green);
+        }
+
+        .text-sky {
+            color: var(--sky);
+        }
+
+        .text-ink {
+            color: var(--ink);
+        }
+
+        /* ---------- Hard-shadow block (cards / panels) ---------- */
+        .block {
+            border: var(--border-w) solid var(--ink);
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--ink);
+            padding: var(--space-2);
+            margin: 0 var(--shadow-offset) var(--shadow-offset) 0;
+            /* room for the shadow */
+        }
+
+        .block> :last-child {
+            margin-bottom: 0;
+        }
+
+        .block-title {
+            font-family: var(--font-condensed);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .04em;
+            font-size: 1.75rem;
+            line-height: 1.05;
+            margin: 0 0 .25em;
+        }
+
+        .block-sub {
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 1rem;
+            margin: 0 0 .25em;
+        }
+
+        .block-text {
+            font-size: .875rem;
+            line-height: 1.35;
+            margin: 0;
+        }
+
+        /* Simple responsive grid for blocks */
+        .grid {
+            display: grid;
+            gap: var(--space-3);
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            margin: var(--space-3) 0;
+        }
+
+        /* ---------- Buttons ---------- */
+        .btn {
+            display: inline-block;
+            font-family: var(--font-condensed);
+            font-weight: 800;
+            font-size: 1.25rem;
+            line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: .04em;
+            text-decoration: none;
+            color: var(--ink);
+            background: var(--gold);
+            border: 3px solid var(--ink);
+            box-shadow: 4px 4px 0 var(--ink);
+            padding: .6em 1.4em;
+            margin: 0 .5em .5em 0;
+            cursor: pointer;
+            transition: transform .08s, box-shadow .08s;
+        }
+
+        .btn:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0 var(--ink);
+            color: var(--ink);
+        }
+
+        .btn:active {
+            transform: translate(4px, 4px);
+            box-shadow: 0 0 0 var(--ink);
+        }
+
+        .btn-cobalt {
+            background: var(--cobalt);
+            color: #fff;
+        }
+
+        .btn-cobalt:hover {
+            color: #fff;
+        }
+
+        /* ---------- Misc ---------- */
+        .rule {
+            /* double-yellow center line divider */
+            height: 10px;
+            border: 0;
+            border-top: 3px solid var(--gold);
+            border-bottom: 3px solid var(--gold);
+            margin: var(--space-4) 0;
+        }
+
+        .outlined {
+            border: 3px solid var(--ink);
+        }
+
+        .mark-nav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            gap: .5rem;
+            padding: .4rem 1rem;
+            background: var(--ink);
+        }
+
+        .mark-nav a {
+            display: grid;
+            place-items: center;
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--cream);
+            transition: border-color .15s, transform .15s;
+        }
+
+        .mark-nav a:hover,
+        .mark-nav a:focus-visible {
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .mark-nav svg {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        :target {
+            scroll-margin-top: 60px;
+        }
+
+        /* ---------- Small screens ---------- */
+        @media (max-width: 600px) {
+            .container {
+                padding: var(--space-3) var(--space-2);
+            }
+
+            section {
+                margin: var(--space-4) 0;
+            }
+
+            .accountability-photo {
+                float: none;
+                width: min(100%, 360px);
+                margin: 0 auto 1.5rem;
+            }
+        }
+
+        /* ---------- Print / PDF ---------- */
+        @media print {
+
+            *,
+            *::before,
+            *::after {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            html,
+            body {
+                background-color: var(--cream) !important;
+            }
+
+            .mark-nav {
+                display: none;
+            }
+
+            .kicker {
+                color: var(--brick);
+            }
+        }
+
+        /* Brand tooltip for SVG links. Pure HTML + CSS, no JS.
+   Usage: wrap the <svg> in <a class="tip"> and add a <span class="tip-text">. */
+        .tip {
+            --tip-ink: #12153A;
+            /* Porch Ink: text, outlines, hard shadows */
+            --tip-cream: #FFF6DC;
+            /* Paper Cream: ground */
+            --tip-gold: #F6B91D;
+            /* Locust Gold: label chip */
+            --tip-cobalt: #1F32B8;
+            /* Ralston Cobalt: focus ring */
+            --tip-shift: 6px;
+            /* slide distance on show */
+            position: relative;
+            display: inline-block;
+            color: inherit;
+            text-decoration: none;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .tip>svg {
+            display: block;
+        }
+
+        .tip:focus-visible {
+            outline: 3px solid var(--tip-cobalt);
+            outline-offset: 4px;
+        }
+
+        /* The bubble (default: above the SVG) */
+        .tip-text {
+            position: absolute;
+            z-index: 100;
+            left: 50%;
+            bottom: calc(100% + 14px);
+            box-sizing: border-box;
+            width: max-content;
+            max-width: 240px;
+            padding: 10px 12px;
+            background: var(--tip-cream);
+            color: var(--tip-ink);
+            border: 3px solid var(--tip-ink);
+            box-shadow: 4px 4px 0 var(--tip-ink);
+            font: 600 14px/1.3 'Barlow', sans-serif;
+            letter-spacing: 0;
+            text-align: left;
+            text-transform: none;
+            white-space: normal;
+            transform: translate(-50%, var(--tip-shift));
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity .12s ease, transform .12s ease, visibility 0s linear .12s;
+        }
+
+        /* Label chip: <b>Goes to</b> */
+        .tip-text b {
+            display: block;
+            width: fit-content;
+            margin-bottom: 6px;
+            padding: 3px 7px 2px;
+            background: var(--tip-gold);
+            color: var(--tip-ink);
+            border: 2px solid var(--tip-ink);
+            font: 800 12px/1 'Barlow Condensed', sans-serif;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+        }
+
+        /* Pointer */
+        .tip-text::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            box-sizing: border-box;
+            width: 12px;
+            height: 12px;
+            margin-top: -3px;
+            background: var(--tip-cream);
+            border: 3px solid var(--tip-ink);
+            border-top: 0;
+            border-left: 0;
+            transform: translateX(-50%) rotate(45deg);
+        }
+
+        /* Show on hover, keyboard focus, and tap */
+        .tip:hover .tip-text,
+        .tip:focus-visible .tip-text {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, 0);
+            transition-delay: 0s;
+        }
+
+        /* Below the SVG: <a class="tip tip--bottom"> */
+        .tip--bottom {
+            --tip-shift: -6px;
+        }
+
+        .tip--bottom .tip-text {
+            bottom: auto;
+            top: calc(100% + 14px);
+        }
+
+        .tip--bottom .tip-text::after {
+            top: auto;
+            bottom: 100%;
+            margin-top: 0;
+            margin-bottom: -3px;
+            border: 3px solid var(--tip-ink);
+            border-bottom: 0;
+            border-right: 0;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .tip-text {
+                transition: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="mark-nav" aria-label="Page sections">
+        <a class="tip tip--bottom" href="./meetme.html" aria-label="Meetme">
+            <svg viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+                <rect width="100" height="100" fill="#B8472A" stroke="#12153A" stroke-width="4"></rect>
+                <rect width="14" height="100" fill="#12153A"></rect>
+                <path d="M14 22H90" stroke="#12153A" stroke-width="5" stroke-linecap="round"></path>
+                <path d="M30 22V42M76 22V42" stroke="#12153A" stroke-width="2.5"></path>
+                <rect x="22" y="42" width="64" height="38" rx="3" fill="#F6B91D" stroke="#12153A" stroke-width="4">
+                </rect><text x="54" y="67" text-anchor="middle" font-family="Barlow Condensed" font-weight="800"
+                    font-size="20" fill="#12153A">OPEN</text>
+            </svg>
+            <span class="tip-text" role="tooltip" id="tip-events">Meet Lauren</span>
+        </a>
+        <a class="tip tip--bottom" href="./issues.html" aria-describedby="tip-events">
+            <svg viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+                <rect width="100" height="100" fill="#1F32B8" stroke="#12153A" stroke-width="4"></rect>
+                <path d="M34 94L40 58M66 94L60 58M50 94V58M38 80H62M36 88L64 70M64 88L36 70" stroke="#FFF6DC"
+                    stroke-width="3" stroke-linecap="round" fill="none"></path>
+                <path d="M30 38L50 18L70 38Z" fill="#F6B91D" stroke="#12153A" stroke-width="3" stroke-linejoin="round">
+                </path>
+                <rect x="32" y="38" width="36" height="22" rx="3" fill="#FFF6DC" stroke="#12153A" stroke-width="3">
+                </rect>
+                <rect x="32" y="46" width="36" height="6" fill="#F6B91D" stroke="#12153A" stroke-width="3"></rect>
+            </svg>
+            <span class="tip-text" role="tooltip" id="tip-events">Arvada Issues</span>
+        </a>
+        <a class="tip tip--bottom" href="./support.html" aria-describedby="tip-events">
+            <svg viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+                <rect width="100" height="100" fill="#F6B91D" stroke="#12153A" stroke-width="4"></rect>
+                <rect x="18" y="52" width="64" height="38" fill="#B8472A" stroke="#12153A" stroke-width="3"></rect>
+                <rect x="43" y="62" width="14" height="28" fill="#FFF6DC" stroke="#12153A" stroke-width="3"></rect>
+                <g stroke="#12153A" stroke-width="3">
+                    <rect x="14" y="20" width="12" height="26" fill="#1F32B8"></rect>
+                    <rect x="26" y="20" width="12" height="26" fill="#FFF6DC"></rect>
+                    <rect x="38" y="20" width="12" height="26" fill="#1F32B8"></rect>
+                    <rect x="50" y="20" width="12" height="26" fill="#FFF6DC"></rect>
+                    <rect x="62" y="20" width="12" height="26" fill="#1F32B8"></rect>
+                    <rect x="74" y="20" width="12" height="26" fill="#FFF6DC"></rect>
+                    <circle cx="20" cy="46" r="6" fill="#1F32B8"></circle>
+                    <circle cx="32" cy="46" r="6" fill="#FFF6DC"></circle>
+                    <circle cx="44" cy="46" r="6" fill="#1F32B8"></circle>
+                    <circle cx="56" cy="46" r="6" fill="#FFF6DC"></circle>
+                    <circle cx="68" cy="46" r="6" fill="#1F32B8"></circle>
+                    <circle cx="80" cy="46" r="6" fill="#FFF6DC"></circle>
+                </g>
+            </svg>
+            <span class="tip-text" role="tooltip" id="tip-events">Learn More</span>
+        </a>
+        <!-- <a href="#closing" aria-label="Compassion over indifference">
+            <svg viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+                <rect width="100" height="100" fill="#4FA3E8" stroke="#12153A" stroke-width="4"></rect>
+                <circle cx="78" cy="26" r="12" fill="#F6B91D" stroke="#12153A" stroke-width="4"></circle>
+                <path d="M38 20L10 72M38 20L22 72M38 20L58 72M38 20L72 72M38 20L88 72" stroke="#12153A"
+                    stroke-width="2.5" fill="none"></path>
+                <path d="M38 14V74M6 74H94" stroke="#12153A" stroke-width="6" stroke-linecap="round"></path>
+                <path d="M4 90q12 -8 24 0t24 0t24 0t20 0" stroke="#1F32B8" stroke-width="5" fill="none"
+                    stroke-linecap="round"></path>
+            </svg>
+        </a> -->
+    </nav>
+
+    <div class="container">
+        <article>
+            <h2>Meet Lauren</h2>
+            <div class="accountability-intro">
+                <p>Hello, Arvada! I’m Lauren Simpson, and I’m proud to serve as your mayor.</p>
+                <figure class="accountability-photo">
+                    <img src="./laurensimpson.webp" alt="Fan in front of train" loading="lazy">
+                </figure>
+                <p>My story in Arvada began with a lunch in Olde Town. My husband, Steven, and I were looking for a
+                    place to put down roots and raise a family. We visited Arvada in November 2013, fell in love
+                    with the community before we had even finished our meal, and made an offer on a house that very
+                    same day. We weren’t looking for somewhere to simply live. We had found somewhere we wanted to
+                    belong.
+                </p>
+                <h5>Civic Service</h5>
+                <p>
+                    At the time, I never imagined I’d one day serve as Arvada’s mayor. My professional career was in
+                    international relations and diplomacy. I studied at Baylor University and Catholic University,
+                    worked in public affairs, and spent eight years serving as a senior foreign policy and
+                    diplomatic officer with the Consulate General of Canada in Denver.
+                </p>
+                <p>
+                    But I discovered something I hadn’t expected: some of the most meaningful work I could do wasn’t
+                    happening overseas or in Washington. It was happening right here at home. I began volunteering,
+                    organizing neighbors, and eventually running for City Council in 2019. Helping people with
+                    everyday problems, bringing people together, and making a tangible difference in my community
+                    became the most rewarding work of my life.
+                </p>
+                <p>
+                    I have always believed that good leadership requires more than having the loudest voice in the
+                    room. It requires listening, building relationships, finding common ground, and being willing to
+                    do the hard work of getting things done.
+                </p>
+                <h5>Your Mayor</h5>
+                <p>
+                    As mayor, I’ve worked alongside residents, local businesses, nonprofits, and city employees to
+                    make progress on the issues that matter to our community. We’ve strengthened our response to
+                    homelessness, expanded housing opportunities, invested in roads and essential infrastructure,
+                    supported local businesses, and continued creating public spaces where our community can come
+                    together. In 2025 alone, Arvada welcomed more than 120 new businesses, while our bridge-housing
+                    partnership helped more than 150 people experiencing homelessness, with approximately 70% moving
+                    on to permanent housing.
+                </p>
+                <p>
+                    With your help I pledge to continue this important work. We must continue addressing
+                    affordability by expanding housing options and investing responsibly in our infrastructure.
+                </p>
+                <p>
+                    Outside City Hall, I’m a wife, a mom, and the executive director of The Feline Fix, a local cat
+                    rescue and welfare organization. Whether I’m helping a neighbor navigate a difficult situation,
+                    working with community partners, or caring for animals who need a second chance, I believe that
+                    service is about showing up when people and communities need you.
+                </p>
+                <p>
+                    It has given me an extraordinary opportunity to serve. I’m running
+                    for re-election because I believe in this community, I’m proud of what we’ve accomplished
+                    together, and I know we have so much more we can achieve.
+                </p>
+            </div>
+        </article>
+    </div>
+</body>

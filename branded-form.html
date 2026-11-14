@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Form</title>
+
+<!-- 1. Fonts (skip if your site already loads these) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Barlow+Condensed:wght@800&family=Barlow:wght@400;600&display=swap" rel="stylesheet">
+
+<!-- 2. Styles (scoped to .sign-form so they won't touch the rest of your site) -->
+<style>
+  :root {
+    --cobalt: #1F32B8;
+    --gold: #F6B91D;
+    --cream: #FFF6DC;
+    --ink: #12153A;
+  }
+
+  /* Demo page ground only; remove when pasting into your site */
+  body { margin: 0; padding: 40px 20px; background: var(--cream); }
+
+  .sign-form {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
+    padding: 28px;
+    background: var(--cobalt);
+    color: var(--cream);
+    border: 4px solid var(--ink);
+    box-shadow: 6px 6px 0 var(--ink);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-family: 'Barlow', sans-serif;
+  }
+
+  .sign-form *, .sign-form *::before, .sign-form *::after { box-sizing: border-box; }
+
+  .sign-form label {
+    display: block;
+    margin-bottom: 6px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+
+  .sign-form input {
+    display: block;
+    width: 100%;
+    padding: 12px 14px;
+    background: var(--cream);
+    color: var(--ink);
+    border: 3px solid var(--ink);
+    border-radius: 0;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    font-size: 16px; /* 16px stops iOS from zooming on focus */
+    line-height: 1.25;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: transform .08s ease, box-shadow .08s ease;
+  }
+
+  .sign-form input::placeholder {
+    color: rgba(18, 21, 58, .6);
+    font-weight: 400;
+  }
+
+  .sign-form input:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+  }
+
+  .sign-form input:focus {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+
+  .sign-form input:user-invalid {
+    border-color: var(--ink);
+    background: #F6D9CF; /* warm blush, stays in the cream family */
+  }
+
+  .sign-form button {
+    margin-top: 6px;
+    padding: 14px 20px;
+    background: var(--gold);
+    color: var(--ink);
+    border: 4px solid var(--ink);
+    border-radius: 0;
+    box-shadow: 5px 5px 0 var(--ink);
+    font-family: 'Bowlby One', sans-serif;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    transition: transform .08s ease, box-shadow .08s ease;
+  }
+
+  .sign-form button:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 var(--ink);
+  }
+
+  .sign-form button:active {
+    transform: translate(4px, 4px);
+    box-shadow: 1px 1px 0 var(--ink);
+  }
+
+  .sign-form button:focus-visible {
+    outline: 3px solid var(--cream);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sign-form input, .sign-form button { transition: none; }
+  }
+
+  @media (max-width: 480px) {
+    .sign-form { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 3. The form (Formspree action, field names and ids unchanged) -->
+<form class="sign-form" action="https://formspree.io/f/xvkagbrl" method="POST">
+
+  <div>
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" autocomplete="name" placeholder="Your name" />
+  </div>
+
+  <div>
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" />
+  </div>
+
+  <div>
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(555) 555-5555" />
+  </div>
+
+  <button type="submit">Submit</button>
+
+</form>
+
+</body>
+</html>

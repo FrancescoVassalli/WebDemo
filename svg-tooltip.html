@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SVG tooltip</title>
+
+<!-- ============ COPY FROM HERE ============ -->
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@800&family=Barlow:wght@600&display=swap" rel="stylesheet">
+<style>
+/* Brand tooltip for SVG links. Pure HTML + CSS, no JS.
+   Usage: wrap the <svg> in <a class="tip"> and add a <span class="tip-text">. */
+.tip {
+  --tip-ink: #12153A;     /* Porch Ink: text, outlines, hard shadows */
+  --tip-cream: #FFF6DC;   /* Paper Cream: ground */
+  --tip-gold: #F6B91D;    /* Locust Gold: label chip */
+  --tip-cobalt: #1F32B8;  /* Ralston Cobalt: focus ring */
+  --tip-shift: 6px;       /* slide distance on show */
+  position: relative;
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.tip > svg { display: block; }
+.tip:focus-visible {
+  outline: 3px solid var(--tip-cobalt);
+  outline-offset: 4px;
+}
+
+/* The bubble (default: above the SVG) */
+.tip-text {
+  position: absolute;
+  z-index: 100;
+  left: 50%;
+  bottom: calc(100% + 14px);
+  box-sizing: border-box;
+  width: max-content;
+  max-width: 240px;
+  padding: 10px 12px;
+  background: var(--tip-cream);
+  color: var(--tip-ink);
+  border: 3px solid var(--tip-ink);
+  box-shadow: 4px 4px 0 var(--tip-ink);
+  font: 600 14px/1.3 'Barlow', sans-serif;
+  letter-spacing: 0;
+  text-align: left;
+  text-transform: none;
+  white-space: normal;
+  transform: translate(-50%, var(--tip-shift));
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .12s ease, transform .12s ease, visibility 0s linear .12s;
+}
+
+/* Label chip: <b>Goes to</b> */
+.tip-text b {
+  display: block;
+  width: fit-content;
+  margin-bottom: 6px;
+  padding: 3px 7px 2px;
+  background: var(--tip-gold);
+  color: var(--tip-ink);
+  border: 2px solid var(--tip-ink);
+  font: 800 12px/1 'Barlow Condensed', sans-serif;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+/* Pointer */
+.tip-text::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  box-sizing: border-box;
+  width: 12px;
+  height: 12px;
+  margin-top: -3px;
+  background: var(--tip-cream);
+  border: 3px solid var(--tip-ink);
+  border-top: 0;
+  border-left: 0;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+/* Show on hover, keyboard focus, and tap */
+.tip:hover .tip-text,
+.tip:focus-visible .tip-text {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+  transition-delay: 0s;
+}
+
+/* Below the SVG: <a class="tip tip--bottom"> */
+.tip--bottom { --tip-shift: -6px; }
+.tip--bottom .tip-text { bottom: auto; top: calc(100% + 14px); }
+.tip--bottom .tip-text::after {
+  top: auto;
+  bottom: 100%;
+  margin-top: 0;
+  margin-bottom: -3px;
+  border: 3px solid var(--tip-ink);
+  border-bottom: 0;
+  border-right: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tip-text { transition: none; }
+}
+</style>
+<!-- ============ COPY TO HERE ============ -->
+
+<style>
+/* demo page only */
+body { margin: 0; padding: 120px 40px; background: #FFF6DC; display: flex; gap: 56px; flex-wrap: wrap; justify-content: center; }
+</style>
+</head>
+<body>
+
+<!-- Markup pattern: copy one of these per SVG -->
+<a class="tip" href="/pricing" aria-describedby="tip-pricing">
+  <svg width="72" height="72" viewBox="0 0 72 72" role="img" aria-label="Pricing">
+    <circle cx="36" cy="36" r="32" fill="#1F32B8" stroke="#12153A" stroke-width="4"/>
+    <path d="M24 36h24M38 26l10 10-10 10" fill="none" stroke="#FFF6DC" stroke-width="5" stroke-linecap="square"/>
+  </svg>
+  <span class="tip-text" role="tooltip" id="tip-pricing"><b>Goes to</b>Pricing page</span>
+</a>
+
+<a class="tip tip--bottom" href="/events" aria-describedby="tip-events">
+  <svg width="72" height="72" viewBox="0 0 72 72" role="img" aria-label="Events">
+    <rect x="6" y="6" width="60" height="60" fill="#F6B91D" stroke="#12153A" stroke-width="4"/>
+    <path d="M36 16l6 14h14l-11 9 4 15-13-9-13 9 4-15-11-9h14z" fill="#12153A"/>
+  </svg>
+  <span class="tip-text" role="tooltip" id="tip-events"><b>Opens</b>Upcoming events calendar</span>
+</a>
+
+<a class="tip" href="/contact" aria-describedby="tip-contact">
+  <svg width="72" height="72" viewBox="0 0 72 72" role="img" aria-label="Contact">
+    <path d="M8 34L36 10l28 24v30H8z" fill="#B8472A" stroke="#12153A" stroke-width="4" stroke-linejoin="round"/>
+    <rect x="28" y="42" width="16" height="22" fill="#FFF6DC" stroke="#12153A" stroke-width="3"/>
+  </svg>
+  <span class="tip-text" role="tooltip" id="tip-contact"><b>Goes to</b>Contact form, opens in the same tab</span>
+</a>
+
+</body>
+</html>
